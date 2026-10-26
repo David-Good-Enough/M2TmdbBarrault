@@ -1,5 +1,12 @@
+import java.util.Properties
+import kotlin.apply
+
 plugins {
     alias(libs.plugins.android.application)
+}
+
+val secrets = Properties().apply {
+    rootProject.file("secrets.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
 
 android {
@@ -16,6 +23,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+        buildConfigField(
+            "String",
+            "TMDB_API_KEY",
+            "\"${secrets.getProperty("TMDB_API_KEY", "")}\""
+        )
     }
 
     buildTypes {
@@ -25,6 +39,9 @@ android {
                 packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
             }
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -38,6 +55,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
