@@ -6,7 +6,7 @@ import retrofit2.http.Query
 public interface ITmdbAPI {
     @GET("person/popular")
     suspend fun getPopularPersons(
-        @Query("language") language: String = "fr-FR",
-        @Query("page") page: Int = 1
-    ): PopularPersonsResponse
+        @Query("page") page: Int = 1,
+        @Query("language") language: String = "fr-FR"
+    ) : PopularPersonsResponse
 }

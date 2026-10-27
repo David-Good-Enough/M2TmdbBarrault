@@ -3,4 +3,5 @@
     <string name="person_photo">Photo de la personne</string>
     <string name="total_results_default_text">Nothing to show</string>
     <string name="total_results_text">showing %1$d/%2$d persons </string>
+    <string name="main_activity_title">Popular persons</string>
 </resources>

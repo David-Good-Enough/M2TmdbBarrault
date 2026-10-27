@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.M2TmdbBarrault" parent="Theme.Material3.DayNight">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.m2tmdbbarrault" parent="Theme.Material3.DayNight">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="actionBarStyle">@style/Widget.m2tmdbbarrault.ActionBar</item>
     </style>
 
-    <style name="Theme.M2TmdbBarrault" parent="Base.Theme.M2TmdbBarrault" />
+    <style name="Widget.m2tmdbbarrault.ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">@color/action_bar_background</item>
+        <item name="titleTextStyle">@style/TextAppearance.m2tmdbbarrault.ActionBar.Title</item>
+    </style>
+
+    <style name="TextAppearance.m2tmdbbarrault.ActionBar.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Theme.m2tmdbbarrault" parent="Base.Theme.m2tmdbbarrault" />
+
 </resources>
